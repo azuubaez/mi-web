@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Felices 29</title>
+<meta name="description" content="Para vos, en tus 29.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     CONFIGURACIÓN RÁPIDA DE COLOR / TIPOGRAFÍA
+     ============================================================ */
+  :root{
+    --bg-deep:   #14090f;
+    --bg-mid:    #221219;
+    --bg-soft:   #331a24;
+    --gold:      #e6293f;
+    --gold-dim:  #9c1c2c;
+    --rose:      #ee5da3;
+    --cream:     #f8ede8;
+    --muted:     #c99aad;
+    --line:      rgba(248,237,232,0.16);
+    --shadow:    rgba(0,0,0,0.45);
+    --serif: 'Bangers', 'Karla', sans-serif;
+    --sans:  'Karla', -apple-system, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background:
+      radial-gradient(var(--line) 1px, transparent 1px) 0 0/18px 18px,
+      var(--bg-deep);
+    color: var(--cream);
+    font-family: var(--sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+  }
+  h1,h2,h3{ font-family: var(--serif); font-weight: 400; letter-spacing: 0.02em; margin: 0; }
+  p{ margin: 0; }
+  img{ max-width: 100%; display:block; }
+  a{ color: inherit; }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  section{
+    padding: clamp(64px, 10vw, 120px) 24px;
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .section-lead{
+    max-width: 46ch;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+  .section-lead + h2, h2{ margin-top: 10px; }
+  h2{ font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 6px; }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero{
+    min-height: 100svh;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding: 24px;
+    position: relative;
+    background:
+      radial-gradient(ellipse at 50% 15%, rgba(239,74,95,0.20), transparent 55%),
+      radial-gradient(ellipse at 15% 85%, rgba(59,130,196,0.22), transparent 55%),
+      radial-gradient(var(--line) 1.5px, transparent 1.5px) 0 0/16px 16px,
+      var(--bg-deep);
+  }
+
+  /* velitas: pequeños puntos de luz que titilan, decorativo y sutil */
+  .velitas{ position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+  .velita{
+    position:absolute;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 8px 2px rgba(230,176,79,0.7);
+    animation: titilar 4s ease-in-out infinite;
+  }
+  @keyframes titilar{
+    0%,100%{ opacity:.25; transform: scale(1); }
+    50%{ opacity:.9; transform: scale(1.6); }
+  }
+
+  .hero h1{
+    font-size: clamp(2.6rem, 8vw, 5rem);
+    line-height: 1.1;
+    color: var(--cream);
+    text-shadow: 3px 3px 0 var(--rose);
+  }
+  .hero h1 em{
+    font-style: normal;
+    color: var(--gold);
+    text-shadow: 3px 3px 0 var(--bg-deep);
+  }
+  .hero-sub{
+    margin-top: 20px;
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    color: var(--cream);
+    max-width: 34ch;
+  }
+  .hero-foto-marco{
+    position: relative;
+    margin: 34px 0 22px;
+    width: min(300px, 78vw);
+    background: var(--cream);
+    padding: 10px 10px 14px;
+    border-radius: 6px;
+    border: 3px solid var(--bg-deep);
+    box-shadow: 0 16px 34px var(--shadow), 0 0 0 3px var(--gold);
+    transform: rotate(-2deg);
+  }
+  .hero-foto-wrap{
+    aspect-ratio: 4/3;
+    overflow:hidden;
+    border-radius: 2px;
+    background: var(--bg-soft);
+  }
+  .hero-foto-wrap img{ width:100%; height:100%; object-fit:cover; }
+  .hero-foto-marco figcaption{
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-3deg);
+    background: var(--gold);
+    color: var(--bg-deep);
+    font-family: var(--serif);
+    font-size: 1rem;
+    letter-spacing: 0.03em;
+    padding: 4px 16px 2px;
+    border-radius: 4px;
+    box-shadow: 0 6px 14px var(--shadow);
+    white-space: nowrap;
+  }
+  .hero-estrella{
+    position:absolute;
+    top: -18px; right: -18px;
+    width: 52px; height: 52px;
+    filter: drop-shadow(0 4px 8px var(--shadow));
+    transform: rotate(12deg);
+  }
+  .hero-cue{
+    margin-top: 40px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  .hero-cue svg{ animation: bajar 1.8s ease-in-out infinite; }
+  @keyframes bajar{
+    0%,100%{ transform: translateY(0); opacity:.5; }
+    50%{ transform: translateY(6px); opacity:1; }
+  }
+
+  /* ============================================================
+     CONTADOR
+     ============================================================ */
+  .contador{ text-align:center; }
+  .contador-caja{
+    border: 1px solid var(--line);
+    background: var(--bg-mid);
+    border-radius: 14px;
+    padding: clamp(32px, 6vw, 56px) 24px;
+    box-shadow: 0 14px 34px var(--shadow);
+  }
+  .numero-grande{
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: clamp(4rem, 16vw, 9rem);
+    color: var(--gold);
+    line-height: 1;
+    margin: 8px 0 4px;
+    font-variant-numeric: tabular-nums;
+  }
+  .numero-label{
+    font-size: 1.1rem;
+    color: var(--cream);
+    margin-bottom: 48px;
+  }
+  .stats-secundarias{
+    display:flex;
+    justify-content:center;
+    gap: clamp(24px, 6vw, 64px);
+    flex-wrap: wrap;
+  }
+  .stat{ min-width: 90px; }
+  .stat span{
+    display:block;
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: var(--rose);
+    font-variant-numeric: tabular-nums;
+  }
+  .stat p{ color: var(--muted); font-size: 0.9rem; margin-top: 2px; }
+
+  /* ============================================================
+     GALERÍA — fotos que se dan vuelta al tocarlas (look de álbum real)
+     ============================================================ */
+  .grid-fotos{
+    margin-top: 40px;
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 20px 16px;
+  }
+  .foto-item{
+    perspective: 1200px;
+    cursor: pointer;
+  }
+  .foto-item:nth-child(odd) .foto-inner{ --tilt: -2.5deg; }
+  .foto-item:nth-child(even) .foto-inner{ --tilt: 2deg; }
+  .foto-inner{
+    position: relative;
+    aspect-ratio: 1/1;
+    transform: rotate(var(--tilt, 0deg));
+    transform-style: preserve-3d;
+    transition: transform .5s cubic-bezier(.4,.2,.2,1);
+  }
+  .foto-item.volteada .foto-inner{ transform: rotate(var(--tilt,0deg)) rotateY(180deg); }
+  .foto-front, .foto-back{
+    position:absolute; inset:0;
+    backface-visibility: hidden;
+    border-radius: 3px;
+  }
+  .foto-front{
+    background: var(--cream);
+    padding: 8px 8px 10px;
+    box-shadow: 0 10px 22px var(--shadow);
+  }
+  .foto-front .foto-wrap{
+    width:100%; height:100%;
+    overflow:hidden;
+    background: var(--bg-soft);
+  }
+  .foto-front img{ width:100%; height:100%; object-fit:cover; }
+  .foto-vacia{
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-align:center;
+    padding: 10px;
+    font-family: var(--sans);
+    display:flex; align-items:center; justify-content:center;
+    height:100%;
+  }
+  .foto-back{
+    transform: rotateY(180deg);
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    padding: 14px;
+    text-align:center;
+  }
+  .foto-back p{
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: var(--rose);
+    line-height: 1.4;
+  }
+
+  /* ============================================================
+     MENSAJITOS — cajitas que se abren al tocarlas
+     ============================================================ */
+  .grid-mensajes{
+  margin-top: 40px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px;
+}
+  .cajita{
+    border: 1px solid var(--line);
+    background: var(--bg-mid);
+    border-radius: 6px;
+    padding: 22px;
+    min-height: 120px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transition: background .2s ease, border-color .2s ease;
+  }
+  .cajita:hover, .cajita:focus-visible{ border-color: var(--gold-dim); }
+  .cajita-cerrada{ font-family: var(--serif); font-size: 1.1rem; color: var(--rose); }
+  .cajita-abierta{ display:none; font-size: 0.95rem; color: var(--cream); }
+  .cajita.abierta{ background: var(--bg-soft); }
+  .cajita.abierta .cajita-cerrada{ display:none; }
+  .cajita.abierta .cajita-abierta{ display:block; }
+
+  /* ============================================================
+     HIGHLIGHTS — filas alternadas, foto + recuerdo
+     ============================================================ */
+  .lista-highlights{ margin-top: 40px; display:flex; flex-direction:column; gap: 56px; }
+  .highlight{
+    display:grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 32px;
+    align-items:center;
+  }
+  .highlight:nth-child(even){ direction: rtl; }
+  .highlight:nth-child(even) > *{ direction: ltr; }
+  .highlight-foto{
+    aspect-ratio: 4/3;
+    overflow:hidden;
+    border-radius: 8px;
+    background: var(--bg-soft);
+    box-shadow: 0 14px 30px var(--shadow);
+  }
+  .highlight-foto img{ width:100%; height:100%; object-fit:cover; }
+  .highlight-foto .foto-vacia{ display:flex; align-items:center; justify-content:center; height:100%; }
+  .highlight-texto h3{
+    font-size: 1.4rem;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .highlight-texto p{ color: var(--cream); }
+
+  @media (max-width: 640px){
+    .highlight, .highlight:nth-child(even){
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+  }
+
+  footer{
+    text-align:center;
+    padding: 60px 24px 80px;
+    color: var(--muted);
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-top: 1px solid var(--line);
+    margin-top: 20px;
+  }
+
+  /* ============================================================
+     REFERENCIAS DEL MUNDO ARÁCNIDO — telarañas y corazones de fondo
+     ============================================================ */
+  .fondo-decorativo{
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .telaraña{ position: absolute; opacity: 0.16; }
+  .telaraña.esquina-1{ top: -40px; left: -40px; width: 220px; }
+  .telaraña.esquina-2{ bottom: -50px; right: -50px; width: 260px; transform: rotate(180deg); }
+  .corazon-fondo{
+    position: absolute;
+    opacity: 0.14;
+    filter: drop-shadow(0 0 6px var(--shadow));
+  }
+  h2{ text-shadow: 3px 3px 0 var(--gold-dim); }
+
+  header, section, footer{ position: relative; z-index: 1; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration: .001s !important; animation-iteration-count: 1 !important; }
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+<div class="fondo-decorativo" aria-hidden="true">
+  <svg class="telaraña esquina-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="var(--rose)" stroke-width="1.2" fill="none" stroke-linecap="round">
+      <line x1="0" y1="0" x2="180" y2="0"/>
+      <line x1="0" y1="0" x2="174" y2="47"/>
+      <line x1="0" y1="0" x2="156" y2="90"/>
+      <line x1="0" y1="0" x2="127" y2="127"/>
+      <line x1="0" y1="0" x2="90" y2="156"/>
+      <line x1="0" y1="0" x2="47" y2="174"/>
+      <line x1="0" y1="0" x2="0" y2="180"/>
+      <polyline points="60,0 58,16 52,30 42,42 30,52 16,58 0,60"/>
+      <polyline points="120,0 116,31 104,60 85,85 60,104 31,116 0,120"/>
+      <polyline points="180,0 174,47 156,90 127,127 90,156 47,174 0,180"/>
+    </g>
+  </svg>
+  <svg class="telaraña esquina-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="var(--gold)" stroke-width="1.2" fill="none" stroke-linecap="round">
+      <line x1="0" y1="0" x2="180" y2="0"/>
+      <line x1="0" y1="0" x2="174" y2="47"/>
+      <line x1="0" y1="0" x2="156" y2="90"/>
+      <line x1="0" y1="0" x2="127" y2="127"/>
+      <line x1="0" y1="0" x2="90" y2="156"/>
+      <line x1="0" y1="0" x2="47" y2="174"/>
+      <line x1="0" y1="0" x2="0" y2="180"/>
+      <polyline points="60,0 58,16 52,30 42,42 30,52 16,58 0,60"/>
+      <polyline points="120,0 116,31 104,60 85,85 60,104 31,116 0,120"/>
+      <polyline points="180,0 174,47 156,90 127,127 90,156 47,174 0,180"/>
+    </g>
+  </svg>
+  <svg class="corazon-fondo" style="top:12%; right:8%; width:26px;" viewBox="0 0 24 24"><path fill="var(--rose)" d="M12 21s-6.7-4.35-9.3-8.1C.7 10.2 1 6.9 3.4 5.1 5.4 3.6 8 4 9.6 6c.6.8 1.4 2 2.4 2s1.8-1.2 2.4-2c1.6-2 4.2-2.4 6.2-.9 2.4 1.8 2.7 5.1.7 7.8C18.7 16.65 12 21 12 21z"/></svg>
+  <svg class="corazon-fondo" style="top:38%; left:5%; width:20px;" viewBox="0 0 24 24"><path fill="var(--gold)" d="M12 21s-6.7-4.35-9.3-8.1C.7 10.2 1 6.9 3.4 5.1 5.4 3.6 8 4 9.6 6c.6.8 1.4 2 2.4 2s1.8-1.2 2.4-2c1.6-2 4.2-2.4 6.2-.9 2.4 1.8 2.7 5.1.7 7.8C18.7 16.65 12 21 12 21z"/></svg>
+  <svg class="corazon-fondo" style="top:63%; right:12%; width:22px;" viewBox="0 0 24 24"><path fill="var(--rose)" d="M12 21s-6.7-4.35-9.3-8.1C.7 10.2 1 6.9 3.4 5.1 5.4 3.6 8 4 9.6 6c.6.8 1.4 2 2.4 2s1.8-1.2 2.4-2c1.6-2 4.2-2.4 6.2-.9 2.4 1.8 2.7 5.1.7 7.8C18.7 16.65 12 21 12 21z"/></svg>
+  <svg class="corazon-fondo" style="top:82%; left:9%; width:18px;" viewBox="0 0 24 24"><path fill="var(--gold)" d="M12 21s-6.7-4.35-9.3-8.1C.7 10.2 1 6.9 3.4 5.1 5.4 3.6 8 4 9.6 6c.6.8 1.4 2 2.4 2s1.8-1.2 2.4-2c1.6-2 4.2-2.4 6.2-.9 2.4 1.8 2.7 5.1.7 7.8C18.7 16.65 12 21 12 21z"/></svg>
+</div>
+
+<header class="hero">
+  <div class="velitas" id="velitas"></div>
+  <h1>Felices 29,<br><em id="hero-nombre">mi amor</em></h1>
+  <p class="hero-sub">Perdón por no poder estar, pero al menos te armé un pequeño reminder de cuánto te quiero.</p>
+  <figure class="hero-foto-marco">
+    <svg class="hero-estrella" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <path fill="var(--gold)" stroke="var(--bg-deep)" stroke-width="3" d="M50 3 L61 35 L95 35 L67 55 L78 88 L50 68 L22 88 L33 55 L5 35 L39 35 Z"/>
+    </svg>
+    <div class="hero-foto-wrap">
+      <img id="hero-foto" src="" alt="Nosotros como superhéroes">
+    </div>
+    <figcaption>el equipo más grande</figcaption>
+  </figure>
+  <div class="hero-cue">
+    <span>bajá despacio</span>
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</header>
+
+<section class="contador">
+  <div class="contador-caja">
+    <p class="section-lead" style="margin:0 auto;">y contando, ya llevamos</p>
+    <div class="numero-grande" id="dias">0</div>
+    <p class="numero-label">días juntos</p>
+    <div class="stats-secundarias">
+      <div class="stat"><span id="meses">0</span><p>meses</p></div>
+      <div class="stat"><span id="semanas">0</span><p>semanas</p></div>
+      <div class="stat"><span id="horas">0</span><p>horas</p></div>
+      <div class="stat"><span id="segundos">0</span><p>segundos</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="galeria">
+  <h2>Nuestro álbum</h2>
+  <p class="section-lead">Un rincón con las fotos que más quiero. Tocá cada una y date vuelta a leer.</p>
+  <div class="grid-fotos" id="grid-fotos"></div>
+</section>
+
+<section class="mensajitos">
+  <h2>Para vos</h2>
+  <p class="section-lead">Tocá cada cajita.</p>
+  <div class="grid-mensajes" id="grid-mensajes"></div>
+</section>
+
+<section class="highlights">
+  <h2>Highlights nuestros</h2>
+  <p class="section-lead">Algunos de mis recuerdos favoritos, hasta ahora.</p>
+  <div class="lista-highlights" id="lista-highlights"></div>
+</section>
+
+<footer>
+  <p>con todo mi amor, hoy y siempre — Azu</p>
+</footer>
+
+<script>
+/* ================================================================
+   CONFIGURACIÓN — editá todo esto, es lo único que necesitás tocar.
+   ================================================================ */
+
+// 1) Su nombre
+const NOMBRE = "mi amor"; // cambiá esto por su nombre
+
+// 2) Fecha en que empezaron (no tocar el formato)
+const FECHA_INICIO = new Date(2024, 6, 20); // mes 6 = julio (los meses arrancan en 0)
+
+// 3) Foto de portada (la de arriba de todo, la de "nosotros como superhéroes").
+//    Poné el archivo dentro de la carpeta "fotos".
+const FOTO_HERO = "fotos/portada.jpeg";
+
+// 4) Fotos del álbum (25 en total).
+//    Poné tus fotos dentro de la carpeta "fotos" (al lado de este archivo).
+//    "mensaje" es lo que aparece cuando la foto se da vuelta.
+const FOTOS = [
+  { src: "fotos/foto1.jpeg",  mensaje: "Te amoo" },
+  { src: "fotos/foto2.jpeg",  mensaje: "Mi foto fav, con mi persona fav <3" },
+  { src: "fotos/foto3.jpeg",  mensaje: "Momento donde exploto de ternura" },
+  { src: "fotos/foto4.jpeg",  mensaje: "Cuando resurgió el amor !!" },
+  { src: "fotos/foto5.jpeg",  mensaje: "Despúes del show de Lucho comiendo unas hamburguesitas" },
+  { src: "fotos/foto6.jpeg",  mensaje: "Pintando nuestras fotitos" },
+  { src: "fotos/foto7.jpeg",  mensaje: "Con vos todo es mas divertido <3" },
+  { src: "fotos/foto8.jpeg",  mensaje: "Esta foto me mata de amorrr" },
+  { src: "fotos/foto9.jpeg",  mensaje: "Nuestra primera reconciliación jajaj" },
+  { src: "fotos/foto10.jpeg", mensaje: "Vos alias Charles Chaplin" },
+  { src: "fotos/foto11.jpeg", mensaje: "Mis 2 amores <3" },
+  { src: "fotos/foto12.jpeg", mensaje: "Esta foto refleja como me MUERO de amor por vos" },
+  { src: "fotos/foto13.jpeg", mensaje: "Una foto hermosa, de un día hermoso <3" },
+  { src: "fotos/foto14.jpeg", mensaje: "Haciendo lo que mas nos gusta: Ser morsas en la playita" },
+  { src: "fotos/foto15.jpeg", mensaje: "Tardes de facturitas en la terraza :')" },
+  { src: "fotos/foto16.jpeg", mensaje: "Ese día fuimos a Bob Moses, uno de mis días favoritos" },
+  { src: "fotos/foto17.jpeg", mensaje: "Vistiéndonos matcheados, me encanta" },
+  { src: "fotos/foto18.jpeg", mensaje: "La paaapaaaa" },
+  { src: "fotos/foto19.jpeg", mensaje: "Cuando me rompí la mano y me ayudabas a curarla, te amo" },
+  { src: "fotos/foto20.jpeg", mensaje: "Esta foto mennncanta" },
+  { src: "fotos/foto21.jpeg", mensaje: "Esta también jeje" },
+  { src: "fotos/foto22.jpeg", mensaje: "Siendo una familia feliz :')" },
+  { src: "fotos/foto23.jpeg", mensaje: "Mi gordito con conejitos" },
+  { src: "fotos/foto24.jpeg", mensaje: "Toti y Spiderman" },
+  { src: "fotos/foto25.jpeg", mensaje: "Día de sauna y relax con mi bb" },
+  { src: "fotos/foto26.jpeg", mensaje: "Sigamos sumando noches para el reucuerdo <3" },
+  { src: "fotos/foto27.jpeg", mensaje: "Fan n1 de tus besos" },
+  { src: "fotos/foto28.jpeg", mensaje: "Ojalá nos espere mucha playita masss" },
+  { src: "fotos/foto29.jpeg", mensaje: "Y que tengamos muchas mas pijamadas de ver pelis y mimitos" },
+  { src: "fotos/foto30.jpeg", mensaje: "Y que nunca se acabe este amor <3" },
+];
+
+// 5) Mensajitos (10 en total) — cada uno es una cajita que se abre al tocarla.
+const MENSAJES = [
+  { titulo: "abrí acá", texto: "Nunca de los nuncas, dudes de lo mucho que te amo <3." },
+  { titulo: "abrí acá", texto: "Sos mi casualidad mas hermosa" },
+  { titulo: "abrí acá", texto: "Con vos la vida es más divertida" },
+  { titulo: "abrí acá", texto: "Compartir la vida con vos es un mimo al corazón" },
+  { titulo: "abrí acá", texto: "Ojalá sea para siempre <3" },
+  { titulo: "abrí acá", texto: "Reir con vos me alegra la vida" },
+  { titulo: "abrí acá", texto: "Que afortunada soy de tenerte" },
+  { titulo: "abrí acá", texto: "Me encantass" },
+  { titulo: "abrí acá", texto: "Adoro poder ser yo misma con vos, me das paz" },
+  { titulo: "abrí acá", texto: "Gracias por ser parte de mi vida <3" },
+];
+
+// 6) Highlights (4 en total) — recuerdos con foto. "foto" puede ser una de la
+//    carpeta fotos, o repetir una que ya usaste en el álbum.
+const HIGHLIGHTS = [
+  { foto: "fotos/highlight1.jpeg", titulo: "Uno de los días más felices (de ambos)...", texto: "Cuando te recibiste <3 Me llenas de orgullo amor!" },
+  { foto: "fotos/highlight2.jpeg", titulo: "El día que...", texto: "Nos pusimos de novios :')" },
+  { foto: "fotos/highlight3.jpeg", titulo: "Cuando...", texto: "Subiste por primera vez una foto conmigo, casi exploto de felicidadd" },
+  { foto: "fotos/highlight4.jpeg", titulo: "La vez que...", texto: "Nos dijimos 'Te Amo' por primera vez <3" },
+];
+
+/* ================================================================
+   A partir de acá es el motor de la página — no hace falta tocarlo.
+   ================================================================ */
+
+document.getElementById("hero-nombre").textContent = NOMBRE;
+
+// --- foto de portada ---
+const heroFoto = document.getElementById("hero-foto");
+const heroFotoWrap = heroFoto.parentElement;
+heroFoto.src = FOTO_HERO;
+heroFoto.onerror = () => {
+  heroFotoWrap.innerHTML = "";
+  const vacia = document.createElement("p");
+  vacia.className = "foto-vacia";
+  vacia.textContent = "poné acá tu foto (" + FOTO_HERO.split("/").pop() + ")";
+  heroFotoWrap.appendChild(vacia);
+};
+
+// --- velitas decorativas ---
+const velitasWrap = document.getElementById("velitas");
+for (let i = 0; i < 22; i++) {
+  const v = document.createElement("div");
+  v.className = "velita";
+  v.style.left = Math.random() * 100 + "%";
+  v.style.top = Math.random() * 100 + "%";
+  v.style.animationDelay = (Math.random() * 4) + "s";
+  velitasWrap.appendChild(v);
+}
+
+// --- contador de días (en vivo, se actualiza solo cada segundo) ---
+function actualizarContador() {
+  const ahora = new Date();
+  const diffMs = ahora - FECHA_INICIO;
+  const dias = Math.floor(diffMs / 86400000);
+  const horas = Math.floor(diffMs / 3600000);
+  const segundos = Math.floor(diffMs / 1000);
+  const semanas = Math.floor(dias / 7);
+  const meses = Math.floor(dias / 30.44);
+  document.getElementById("dias").textContent = dias.toLocaleString("es-AR");
+  document.getElementById("meses").textContent = meses.toLocaleString("es-AR");
+  document.getElementById("semanas").textContent = semanas.toLocaleString("es-AR");
+  document.getElementById("horas").textContent = horas.toLocaleString("es-AR");
+  document.getElementById("segundos").textContent = segundos.toLocaleString("es-AR");
+}
+actualizarContador();
+setInterval(actualizarContador, 1000);
+
+// --- galería: cada foto se da vuelta y muestra un mensaje ---
+const gridFotos = document.getElementById("grid-fotos");
+
+FOTOS.forEach((foto) => {
+  const item = document.createElement("div");
+  item.className = "foto-item";
+  item.tabIndex = 0;
+
+  const inner = document.createElement("div");
+  inner.className = "foto-inner";
+
+  const front = document.createElement("div");
+  front.className = "foto-front";
+  const wrap = document.createElement("div");
+  wrap.className = "foto-wrap";
+  const img = document.createElement("img");
+  img.src = foto.src;
+  img.alt = foto.mensaje || "foto nuestra";
+  img.loading = "lazy";
+  img.onerror = () => {
+    wrap.innerHTML = "";
+    const vacia = document.createElement("p");
+    vacia.className = "foto-vacia";
+    vacia.textContent = "poné acá " + foto.src.split("/").pop();
+    wrap.appendChild(vacia);
+  };
+  wrap.appendChild(img);
+  front.appendChild(wrap);
+
+  const back = document.createElement("div");
+  back.className = "foto-back";
+  const msg = document.createElement("p");
+  msg.textContent = foto.mensaje || "";
+  back.appendChild(msg);
+
+  inner.appendChild(front);
+  inner.appendChild(back);
+  item.appendChild(inner);
+
+  const voltear = () => item.classList.toggle("volteada");
+  item.addEventListener("click", voltear);
+  item.addEventListener("keydown", (e) => { if (e.key === "Enter") voltear(); });
+
+  gridFotos.appendChild(item);
+});
+
+// --- mensajitos ---
+const gridMensajes = document.getElementById("grid-mensajes");
+MENSAJES.forEach((msg) => {
+  const caja = document.createElement("div");
+  caja.className = "cajita";
+  caja.tabIndex = 0;
+
+  const cerrada = document.createElement("p");
+  cerrada.className = "cajita-cerrada";
+  cerrada.textContent = msg.titulo;
+
+  const abierta = document.createElement("p");
+  abierta.className = "cajita-abierta";
+  abierta.textContent = msg.texto;
+
+  caja.appendChild(cerrada);
+  caja.appendChild(abierta);
+
+  const toggle = () => caja.classList.toggle("abierta");
+  caja.addEventListener("click", toggle);
+  caja.addEventListener("keydown", (e) => { if (e.key === "Enter") toggle(); });
+
+  gridMensajes.appendChild(caja);
+});
+
+// --- highlights ---
+const listaHighlights = document.getElementById("lista-highlights");
+HIGHLIGHTS.forEach((h) => {
+  const fila = document.createElement("div");
+  fila.className = "highlight";
+
+  const fotoDiv = document.createElement("div");
+  fotoDiv.className = "highlight-foto";
+  const img = document.createElement("img");
+  img.src = h.foto;
+  img.alt = h.titulo;
+  img.loading = "lazy";
+  img.onerror = () => {
+    fotoDiv.innerHTML = "";
+    const vacia = document.createElement("p");
+    vacia.className = "foto-vacia";
+    vacia.textContent = "poné acá " + h.foto.split("/").pop();
+    fotoDiv.appendChild(vacia);
+  };
+  fotoDiv.appendChild(img);
+
+  const texto = document.createElement("div");
+  texto.className = "highlight-texto";
+  const titulo = document.createElement("h3");
+  titulo.textContent = h.titulo;
+  const parrafo = document.createElement("p");
+  parrafo.textContent = h.texto;
+  texto.appendChild(titulo);
+  texto.appendChild(parrafo);
+
+  fila.appendChild(fotoDiv);
+  fila.appendChild(texto);
+  listaHighlights.appendChild(fila);
+});
+</script>
+</body>
+</html>
